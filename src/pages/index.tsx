@@ -76,6 +76,7 @@ export default function Dashboard({ session, stats, dashboardData }: IDashboardP
             type: 'pie',
             data: PIE_CHART_DATA_COPY,
             options: {
+                rotation: 180,
                 responsive: true,
                 aspectRatio: 3,
                 plugins: {

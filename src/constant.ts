@@ -55,9 +55,8 @@ export const PIE_CHART_DATA = {
     datasets: [
         {
             label: 'My First Dataset',
-            data: [300, 50, 100],
-            backgroundColor: ['#98D89E', '#EE8484', 'rgb(255, 205, 86)'],
-            hoverOffset: 4,
+            data: [],
+            backgroundColor: ['#98D89E', 'rgb(255, 205, 86)', '#EE8484'],
         },
     ],
 };

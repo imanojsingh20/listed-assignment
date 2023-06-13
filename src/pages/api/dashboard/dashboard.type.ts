@@ -12,15 +12,15 @@ export const dashboardData = {
     productChart: [
         {
             lable: 'Basic Tees',
-            sale: 300,
+            sale: 55,
         },
         {
             lable: 'Custom Short Pants',
-            sale: 50,
+            sale: 14,
         },
         {
             lable: 'Super Hoodies',
-            sale: 100,
+            sale: 31,
         },
     ],
 };
