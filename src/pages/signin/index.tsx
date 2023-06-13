@@ -13,6 +13,7 @@ import Link from 'next/link';
 import { GetServerSideProps } from 'next';
 import { Session, getServerSession } from 'next-auth';
 import { NEXT_AUTH_OPTIONS } from '../../utils/auth';
+import Head from 'next/head';
 const montserrat = Montserrat({ subsets: ['latin'] });
 
 interface ISigninProps {
@@ -27,52 +28,59 @@ export default function Signin({ session }: ISigninProps) {
     }, []);
 
     return (
-        <main className={`${styles.main} ${montserrat.className}`}>
-            <div className={styles.brandText}>
-                <span>Board.</span>
-            </div>
-            <div className={styles.signinWrapper}>
-                <div>
-                    {/* Sign In Form */}
-                    <h1>Sign In</h1>
-                    <p>Sign in to your account</p>
-                    <div className={styles.socialSigin}>
-                        <Button type='submit' variant='Primary' onClick={googleSigin}>
-                            <span className={styles.socialBtn}>
-                                <Image priority src={GoogleIcon} alt='Sign in with Google' />
-                                Sign in with Google
-                            </span>
-                        </Button>
-                        <Button type='submit' variant='Primary' onClick={() => signOut()}>
-                            <span className={styles.socialBtn}>
-                                <Image priority src={AppleIcon} alt='Sign in with Apple' /> Sign in with Apple
-                            </span>
-                        </Button>
-                    </div>
-                    <form action=''>
-                        <Input labelText='Email address' placeholder='johndoe@gmail.com' />
-                        <Input labelText='Password' placeholder='******' type='password' />
-                        <div>
-                            <Link href='/' className={styles.link}>
-                                Forgot password?
-                            </Link>
+        <div>
+            <Head>
+                <title>Listed | Sign In</title>
+            </Head>
+            <main className={`${styles.main} ${montserrat.className}`}>
+                <div className={styles.brandText}>
+                    <span>Board.</span>
+                </div>
+                <div className={styles.signinWrapper}>
+                    <div>
+                        {/* Sign In Form */}
+                        <div className={styles.title}>
+                            <h1>Sign In</h1>
+                            <p>Sign in to your account</p>
                         </div>
-
-                        <div>
-                            <Button type='submit' fullWidth variant='Seconday'>
-                                Sign In
+                        <div className={styles.socialSigin}>
+                            <Button type='submit' variant='Primary' onClick={googleSigin}>
+                                <span className={styles.socialBtn}>
+                                    <Image priority src={GoogleIcon} alt='Sign in with Google' />
+                                    Sign in with Google
+                                </span>
+                            </Button>
+                            <Button type='submit' variant='Primary' onClick={() => signOut()}>
+                                <span className={styles.socialBtn}>
+                                    <Image priority src={AppleIcon} alt='Sign in with Apple' /> Sign in with Apple
+                                </span>
                             </Button>
                         </div>
-                    </form>
-                    <div className={styles.signupLink}>
-                        Don&apos;t have an account?{' '}
-                        <Link href='/' className={styles.link}>
-                            Register here
-                        </Link>
+                        <form action=''>
+                            <Input labelText='Email address' placeholder='johndoe@gmail.com' />
+                            <Input labelText='Password' placeholder='******' type='password' />
+                            <div>
+                                <Link href='/' className={styles.link}>
+                                    Forgot password?
+                                </Link>
+                            </div>
+
+                            <div>
+                                <Button type='submit' fullWidth variant='Seconday'>
+                                    Sign In
+                                </Button>
+                            </div>
+                        </form>
+                        <div className={styles.signupLink}>
+                            Don&apos;t have an account?{' '}
+                            <Link href='/' className={styles.link}>
+                                Register here
+                            </Link>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </main>
+            </main>
+        </div>
     );
 }
 

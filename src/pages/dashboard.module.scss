@@ -4,7 +4,7 @@
     justify-content: space-between;
     padding: 2rem;
     min-height: 100vh;
-    background-color: #dddddd;
+    background-color: #f5f5f5;
 
     > .mainSideRight {
         height: 100%;
@@ -24,8 +24,12 @@
 
 .topActions {
     display: flex;
-    gap: 1rem;
+    gap: 2em;
     align-items: center;
+}
+
+.searchInput {
+    background-color: #fff !important;
 }
 
 .avatar {

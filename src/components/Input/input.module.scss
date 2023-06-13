@@ -1,14 +1,27 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.inputWrapper {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    padding-right: 0.5rem;
+    border-radius: 0.7rem;
+}
+
 .input {
     width: 100%;
     font-size: 1rem;
-    padding: 0.5rem 1rem;
-    border-radius: 0.5rem;
+    padding: 0.8rem 1rem;
     border: none;
     outline: none;
     background-color: var(--light-bg);
-    margin-top: 0.5rem;
+    border-radius: inherit;
 
     &::placeholder {
-        color: #ccc;
+        color: #b0b0b0;
     }
 }

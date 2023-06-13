@@ -2,11 +2,14 @@ import React from 'react';
 import styles from './input.module.scss';
 import { IInputProps } from './input.interface';
 
-const Input = ({ labelText, ...rest }: IInputProps) => {
+const Input = ({ labelText, className, icon, ...rest }: IInputProps) => {
     return (
-        <div>
+        <div className={styles.wrapper}>
             {labelText && <label htmlFor={rest.name}>{labelText}</label>}
-            <input className={styles.input} type='text' {...rest} />
+            <div className={styles.inputWrapper}>
+                <input className={`${styles.input} ${className}`} type='text' {...rest} />
+                {icon}
+            </div>
         </div>
     );
 };
