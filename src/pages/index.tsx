@@ -1,5 +1,5 @@
 import styles from './dashboard.module.scss';
-import { CARD_DATA, LINE_CHART_DATA, MEETINGS, PIE_CHART_DATA } from '../constant';
+import { BASE_URL, CARD_DATA, LINE_CHART_DATA, MEETINGS, PIE_CHART_DATA } from '../constant';
 import Image from 'next/image';
 import Bell from '../assets/icons/bell.svg';
 import Input from '@/components/Input/Input';
@@ -151,11 +151,7 @@ export default function Dashboard({ session, stats, dashboardData }: IDashboardP
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-    const [session, stats, dashboardData] = await Promise.all([
-        getServerSession(context.req, context.res, NEXT_AUTH_OPTIONS),
-        fetch('http://localhost:3000/api/stats').then((res) => res.json()),
-        fetch('http://localhost:3000/api/dashboard').then((res) => res.json()),
-    ]);
+    const session = await getServerSession(context.req, context.res, NEXT_AUTH_OPTIONS);
 
     if (!session) {
         return {
@@ -165,6 +161,11 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
             },
         };
     }
+
+    const [stats, dashboardData] = await Promise.all([
+        fetch(`${BASE_URL}/api/stats`).then((res) => res.json()),
+        fetch(`${BASE_URL}/api/dashboard`).then((res) => res.json()),
+    ]);
 
     return {
         props: {
