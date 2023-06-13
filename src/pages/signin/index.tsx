@@ -13,7 +13,7 @@ import Link from 'next/link';
 import { GetServerSideProps } from 'next';
 import { Session, getServerSession } from 'next-auth';
 import { NEXT_AUTH_OPTIONS } from '../../utils/auth';
-const montserrat = Montserrat({ subsets: ['latin'], weight: '700' });
+const montserrat = Montserrat({ subsets: ['latin'] });
 
 interface ISigninProps {
     session: Session;

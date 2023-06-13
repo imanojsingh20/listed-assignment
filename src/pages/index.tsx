@@ -1,5 +1,5 @@
 import styles from './dashboard.module.scss';
-import { CARD_DATA, LINE_CHART_DATA, MEETINGS, PIE_CHART_DATA } from './constant';
+import { CARD_DATA, LINE_CHART_DATA, MEETINGS, PIE_CHART_DATA } from '../constant';
 import Image from 'next/image';
 import Bell from '../assets/icons/bell.svg';
 import Input from '@/components/Input/Input';
@@ -16,7 +16,7 @@ import { Montserrat } from 'next/font/google';
 import { GetServerSideProps } from 'next';
 import { StatsType } from './api/stats/stats.type';
 import { DashboardType } from './api/dashboard/dashboard.type';
-const montserrat = Montserrat({ subsets: ['latin'], weight: '700' });
+const montserrat = Montserrat({ subsets: ['latin'] });
 
 const LINE_CHART_DATA_COPY = JSON.parse(JSON.stringify(LINE_CHART_DATA));
 const PIE_CHART_DATA_COPY = JSON.parse(JSON.stringify(PIE_CHART_DATA));
@@ -45,7 +45,7 @@ export default function Dashboard({ session, stats, dashboardData }: IDashboardP
             data: LINE_CHART_DATA_COPY,
             options: {
                 responsive: true,
-                aspectRatio: 4,
+                aspectRatio: 5,
                 plugins: {
                     legend: {
                         labels: {
@@ -91,7 +91,7 @@ export default function Dashboard({ session, stats, dashboardData }: IDashboardP
             lineGraph.destroy();
             pieChart.destroy();
         };
-    }, []);
+    }, [dashboardData]);
 
     return (
         <main className={`${styles.mainContainer} ${montserrat.className}`}>

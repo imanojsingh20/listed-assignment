@@ -1,7 +1,7 @@
-import Revenue from '../../assets/icons/revenue.svg';
-import TransactionDashboard from '../../assets/icons/tranaction.svg';
-import Like from '../../assets/icons/like.svg';
-import User from '../../assets/icons/user.svg';
+import Revenue from './assets/icons/revenue.svg';
+import TransactionDashboard from './assets/icons/tranaction.svg';
+import Like from './assets/icons/like.svg';
+import User from './assets/icons/user.svg';
 
 export const CARD_DATA = [
     {

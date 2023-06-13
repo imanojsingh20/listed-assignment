@@ -8,7 +8,7 @@ import { signOut } from 'next-auth/react';
 export const NAV_ITEMS = [
     {
         name: 'Dashboard',
-        link: '/dashboard',
+        link: '/',
         icon: Dashboard,
         id: 1,
     },
