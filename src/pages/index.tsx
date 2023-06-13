@@ -47,7 +47,7 @@ export default function Dashboard({ session, stats, dashboardData }: IDashboardP
             data: LINE_CHART_DATA_COPY,
             options: {
                 responsive: true,
-                aspectRatio: 5,
+
                 plugins: {
                     legend: {
                         labels: {
@@ -78,6 +78,7 @@ export default function Dashboard({ session, stats, dashboardData }: IDashboardP
             options: {
                 rotation: 180,
                 responsive: true,
+                maintainAspectRatio: true,
                 aspectRatio: 3,
                 plugins: {
                     legend: {
@@ -140,13 +141,13 @@ export default function Dashboard({ session, stats, dashboardData }: IDashboardP
                         <div className={styles.card}>
                             <div className={styles.chartTitle}>Activities</div>
                             <div></div>
-                            <canvas id='line-chart' className={styles.lineChart} />
+                            <canvas id='line-chart' className={styles.chart} />
                         </div>
                     </div>
                     <div className={styles.smallChartWrapper}>
                         <div className={styles.card}>
                             <div className={styles.chartTitle}>Top products</div>
-                            <canvas id='pie-chart' className={styles.lineChart} />
+                            <canvas id='pie-chart' className={styles.chart} />
                         </div>
                         <div className={styles.card}>
                             <div className={styles.chartTitle}>

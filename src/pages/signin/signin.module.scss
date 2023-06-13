@@ -1,3 +1,5 @@
+@import '../../styles/media.scss';
+
 .main {
     display: flex;
     height: 100vh;
@@ -20,12 +22,17 @@
         font-size: 4.5rem;
         color: #fff;
         background-color: #000;
+
+        @include mobileTablet {
+            display: none;
+        }
     }
 
     .signinWrapper {
         display: flex;
         justify-content: center;
         align-items: center;
+        padding: 1rem;
 
         background-color: var(--light-bg);
 
@@ -55,7 +62,21 @@
         display: flex;
         justify-content: space-between;
         gap: 1rem;
+        flex-wrap: wrap;
         margin: 1.5rem auto;
+
+        @include mobileTablet {
+            margin: 1rem auto;
+
+            .socialLink {
+                width: 100%;
+                text-align: center;
+
+                span {
+                    justify-content: center;
+                }
+            }
+        }
     }
 
     .socialBtn {

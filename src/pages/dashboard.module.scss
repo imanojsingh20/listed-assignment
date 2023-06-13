@@ -1,3 +1,5 @@
+@import '../styles/media.scss';
+
 .mainContainer {
     display: flex;
     gap: 1rem;
@@ -6,18 +8,14 @@
     min-height: 100vh;
     background-color: #f5f5f5;
 
-    > .mainSideRight {
+    .mainSideRight {
         height: 100%;
         flex: 5;
         padding: 1rem 3rem;
         flex-direction: column;
 
-        display: grid;
-        grid-template-areas:
-            'header header header header header'
-            'cardsWrapper cardsWrapper cardsWrapper cardsWrapper cardsWrapper'
-            'lineCartWrapper lineCartWrapper lineCartWrapper lineCartWrapper lineCartWrapper'
-            'smallChartWrapper smallChartWrapper smallChartWrapper smallChartWrapper smallChartWrapper';
+        display: flex;
+
         gap: 2rem;
     }
 }
@@ -40,7 +38,6 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    grid-area: header;
 }
 
 .cardsWrapper {
@@ -64,7 +61,6 @@
     display: flex;
     justify-content: space-between;
     gap: 2rem;
-    grid-area: smallChartWrapper;
 }
 
 .chartTitle {
@@ -74,13 +70,6 @@
 
     display: flex;
     justify-content: space-between;
-}
-
-.cardsWrapper {
-    grid-area: cardsWrapper;
-}
-.lineCartWrapper {
-    grid-area: lineCartWrapper;
 }
 
 .meetingWrapper {
@@ -98,4 +87,45 @@
     gap: 0.5rem;
     align-items: center;
     color: #858585;
+}
+
+.chart {
+    width: 100%;
+    max-height: 250px;
+}
+
+@include mobileTablet {
+    .mainContainer {
+        flex-direction: column;
+        padding: 0;
+
+        .mainSideRight {
+            padding: 1rem;
+        }
+    }
+
+    .cardsWrapper {
+        flex-wrap: wrap;
+
+        > * {
+            min-width: 30%;
+        }
+    }
+
+    .smallChartWrapper {
+        flex-wrap: wrap;
+    }
+
+    .header {
+        padding-left: 2rem;
+        padding-top: 0.5rem;
+    }
+
+    .searchInput {
+        display: none !important;
+    }
+
+    .card {
+        padding: 1rem;
+    }
 }

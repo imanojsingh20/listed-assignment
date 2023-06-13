@@ -1,3 +1,5 @@
+@import '../../styles/media.scss';
+
 .sideNav {
     flex: 1;
     background-color: rgb(var(--dark-rgb));
@@ -38,4 +40,46 @@
 
 .navSubItem {
     cursor: pointer;
+}
+
+.hamIcon {
+    display: none;
+}
+
+@include mobileTablet {
+    .sideNav {
+        border-radius: 0;
+        padding: 0rem;
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 2;
+        top: 0;
+        left: 0;
+        overflow-x: hidden;
+        transition: 0.5s;
+        padding-top: 60px;
+
+        > * {
+            padding: 2rem;
+        }
+    }
+
+    .hamIcon {
+        display: inline-block;
+        font-size: 2rem;
+        padding: 1rem;
+        position: fixed;
+        top: 0;
+        left: 0;
+        color: #000;
+    }
+
+    .hamContainer {
+        position: absolute;
+    }
+
+    .hamMenuOpen {
+        width: 60%;
+    }
 }

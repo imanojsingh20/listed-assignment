@@ -1,19 +1,18 @@
-import styles from './page.module.scss';
 import { Montserrat } from 'next/font/google';
+import Head from 'next/head';
 import Input from '@/components/Input/Input';
 import Button from '@/components/Button/Button';
 import Image from 'next/image';
 import GoogleIcon from '../../assets/icons/google.svg';
 import AppleIcon from '../../assets/icons/apple.svg';
-import { useSession } from 'next-auth/react';
 import { signOut, signIn } from 'next-auth/react';
 import { useCallback } from 'react';
-import { redirect } from 'next/navigation';
 import Link from 'next/link';
 import { GetServerSideProps } from 'next';
 import { Session, getServerSession } from 'next-auth';
 import { NEXT_AUTH_OPTIONS } from '../../utils/auth';
-import Head from 'next/head';
+import styles from './signin.module.scss';
+
 const montserrat = Montserrat({ subsets: ['latin'] });
 
 interface ISigninProps {
@@ -44,13 +43,13 @@ export default function Signin({ session }: ISigninProps) {
                             <p>Sign in to your account</p>
                         </div>
                         <div className={styles.socialSigin}>
-                            <Button type='submit' variant='Primary' onClick={googleSigin}>
+                            <Button type='submit' variant='Primary' onClick={googleSigin} className={styles.socialLink}>
                                 <span className={styles.socialBtn}>
                                     <Image priority src={GoogleIcon} alt='Sign in with Google' />
                                     Sign in with Google
                                 </span>
                             </Button>
-                            <Button type='submit' variant='Primary' onClick={() => signOut()}>
+                            <Button type='submit' variant='Primary' onClick={() => signOut()} className={styles.socialLink}>
                                 <span className={styles.socialBtn}>
                                     <Image priority src={AppleIcon} alt='Sign in with Apple' /> Sign in with Apple
                                 </span>

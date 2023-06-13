@@ -1,6 +1,12 @@
+@import '../../styles//media.scss';
+
 .statsCard {
     padding: 1rem 2rem;
     border-radius: 1rem;
+
+    @include mobileTablet {
+        min-width: 35%;
+    }
 }
 
 .iconWrapper {
@@ -16,4 +22,8 @@
 .value {
     font-size: 1.5rem;
     font-weight: 700;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }

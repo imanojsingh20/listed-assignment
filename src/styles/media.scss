@@ -1,0 +1,50 @@
+$medias: (
+    mobile: 767px,
+    tablet: 992px,
+    desktop: 1024px,
+);
+@mixin mobile {
+    @media (max-width: map-get($medias, mobile)) {
+        @content;
+    }
+}
+
+@mixin mobileTablet {
+    @media (max-width: map-get($medias, desktop)) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width: map-get($medias, desktop)) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (min-width: map-get($medias, mobile)) and (max-width: map-get($medias, desktop)) {
+        @content;
+    }
+}
+
+@mixin media($keys...) {
+    @each $key in $keys {
+        @if ($key == phone) {
+            @include phone {
+                @content;
+            }
+        } @else if ($key == tablet) {
+            @include tablet {
+                @content;
+            }
+        } @else if ($key == desktop) {
+            @include desktop {
+                @content;
+            }
+        } @else if ($key == mobileTablet) {
+            @include mobileTablet {
+                @content;
+            }
+        }
+    }
+}

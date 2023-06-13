@@ -16,11 +16,11 @@ const getVairantStyles = (variant?: ButtonVariant) => {
     }
 };
 
-const Button = ({ fullWidth, children, variant, ...rest }: IButtonProps) => {
+const Button = ({ fullWidth, className, children, variant, ...rest }: IButtonProps) => {
     const variantStyles = getVairantStyles(variant);
 
     return (
-        <button {...rest} className={`${styles.button} ${fullWidth && styles.fullWidth} ${variantStyles}`}>
+        <button {...rest} className={`${styles.button} ${fullWidth && styles.fullWidth} ${variantStyles} ${className}`}>
             {children}
         </button>
     );
