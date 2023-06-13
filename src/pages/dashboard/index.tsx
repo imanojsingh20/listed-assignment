@@ -1,21 +1,22 @@
+import { signOut, useSession } from 'next-auth/react';
+import { redirect } from 'next/navigation';
 import styles from './dashboard.module.scss';
 import { CARD_DATA, LINE_CHART_DATA, MEETINGS, PIE_CHART_DATA } from './constant';
 import Image from 'next/image';
-import Bell from '../assets/icons/bell.svg';
+import Bell from '../../assets/icons/bell.svg';
 import Input from '@/components/Input/Input';
 import StatsCard from '@/components/StastCard/StatsCard';
 import Chart from 'chart.js/auto';
-import { useEffect } from 'react';
+import { use, useEffect } from 'react';
 import MeetingItem from '@/components/MeetingItem/MeetingItem';
-import RightArrow from '../assets/icons/bell.svg';
+import RightArrow from '../../assets/icons/rightArrow.svg';
 import SideNav from '@/components/SideNav/SideNav';
-
+import { StatsType } from '../api/stats/stats.type';
+import { DashboardType } from '../api/dashboard/dashboard.type';
 import { NEXT_AUTH_OPTIONS } from '@/utils/auth';
 import { Session, getServerSession } from 'next-auth';
 import { Montserrat } from 'next/font/google';
 import { GetServerSideProps } from 'next';
-import { StatsType } from './api/stats/stats.type';
-import { DashboardType } from './api/dashboard/dashboard.type';
 const montserrat = Montserrat({ subsets: ['latin'], weight: '700' });
 
 const LINE_CHART_DATA_COPY = JSON.parse(JSON.stringify(LINE_CHART_DATA));
@@ -151,6 +152,8 @@ export default function Dashboard({ session, stats, dashboardData }: IDashboardP
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
+    // const session = await getServerSession(context.req, context.res, NEXT_AUTH_OPTIONS);
+
     const [session, stats, dashboardData] = await Promise.all([
         getServerSession(context.req, context.res, NEXT_AUTH_OPTIONS),
         fetch('http://localhost:3000/api/stats').then((res) => res.json()),
@@ -160,7 +163,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     if (!session) {
         return {
             redirect: {
-                destination: '/signin',
+                destination: '/',
                 permanent: false,
             },
         };

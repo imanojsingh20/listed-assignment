@@ -1,0 +1,22 @@
+.fullWidth {
+    width: 100%;
+}
+
+.button {
+    padding: 0.6rem;
+    border-radius: 0.5rem;
+    border: none;
+    cursor: pointer;
+    font-weight: 700;
+    box-shadow: 0 5px 5px #f4f4f4;
+}
+
+.primaryBtn {
+    background-color: #fff;
+    color: #000;
+}
+
+.secondaryBtn {
+    color: #fff;
+    background-color: #000;
+}

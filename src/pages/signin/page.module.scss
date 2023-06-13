@@ -1,0 +1,65 @@
+.main {
+    display: flex;
+    height: 100vh;
+
+    & > div {
+        flex: 2;
+        height: 100%;
+    }
+
+    .brandText {
+        flex: 1;
+        font-weight: 700;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 4.5rem;
+        color: #fff;
+        background-color: #000;
+    }
+
+    .signinWrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        background-color: var(--light-bg);
+
+        form {
+            background-color: #fff;
+            padding: 1.5rem;
+            margin: 1rem auto;
+            border-radius: 1rem;
+
+            > * {
+                margin-bottom: 1rem;
+            }
+        }
+    }
+
+    .link {
+        font-size: 0.9rem;
+        color: #346bd4;
+    }
+
+    .signupLink {
+        text-align: center;
+        font-size: 0.9rem;
+    }
+
+    .socialSigin {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        margin: 1.5rem auto;
+    }
+
+    .socialBtn {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--secondary-text);
+        font-weight: 400;
+        padding: 0 1rem;
+    }
+}

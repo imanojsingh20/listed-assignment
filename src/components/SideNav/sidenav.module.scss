@@ -1,0 +1,41 @@
+.sideNav {
+    flex: 1;
+    background-color: rgb(var(--dark-rgb));
+    color: rgb(var(--light-rgb));
+    padding: 3rem;
+    border-radius: 1.5rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.brand {
+    padding-bottom: 2rem;
+}
+
+.navItem {
+    list-style: none;
+    padding: 1rem 0;
+
+    a {
+        display: flex;
+        gap: 1rem;
+    }
+}
+
+.navSub {
+    list-style: none;
+    li {
+        font-size: 0.9rem;
+        margin: 1rem auto;
+    }
+}
+
+.bold {
+    font-weight: 700;
+}
+
+.navSubItem {
+    cursor: pointer;
+}

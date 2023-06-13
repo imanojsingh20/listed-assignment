@@ -1,0 +1,19 @@
+.statsCard {
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+}
+
+.iconWrapper {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.title {
+    font-size: 0.9rem;
+    padding: 0.5rem 0;
+}
+
+.value {
+    font-size: 1.5rem;
+    font-weight: 700;
+}

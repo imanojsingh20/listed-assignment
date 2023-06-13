@@ -1,0 +1,97 @@
+.mainContainer {
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+    padding: 2rem;
+    min-height: 100vh;
+    background-color: #dddddd;
+
+    > .mainSideRight {
+        height: 100%;
+        flex: 5;
+        padding: 1rem 3rem;
+        flex-direction: column;
+
+        display: grid;
+        grid-template-areas:
+            'header header header header header'
+            'cardsWrapper cardsWrapper cardsWrapper cardsWrapper cardsWrapper'
+            'lineCartWrapper lineCartWrapper lineCartWrapper lineCartWrapper lineCartWrapper'
+            'smallChartWrapper smallChartWrapper smallChartWrapper smallChartWrapper smallChartWrapper';
+        gap: 2rem;
+    }
+}
+
+.topActions {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.avatar {
+    border-radius: 50%;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    grid-area: header;
+}
+
+.cardsWrapper {
+    display: flex;
+    gap: 2rem;
+    justify-content: space-between;
+
+    > * {
+        flex: 1;
+    }
+}
+
+.card {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 1.25rem;
+    width: 100%;
+}
+
+.smallChartWrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    grid-area: smallChartWrapper;
+}
+
+.chartTitle {
+    font-weight: 700;
+    padding-bottom: 1rem;
+    font-size: 1.2rem;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.cardsWrapper {
+    grid-area: cardsWrapper;
+}
+.lineCartWrapper {
+    grid-area: lineCartWrapper;
+}
+
+.meetingWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    height: 100%;
+}
+
+.moreCTA {
+    font-weight: 400;
+    font-size: 0.8rem;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    color: #858585;
+}
